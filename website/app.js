@@ -1,4 +1,4 @@
-let apiKey = '';
+let apiKey = '&APPID=e67c73b8c6713f05240abeaf23a4b950';
 let baseURL = `http://api.openweathermap.org/data/2.5/weather?zip=`
 
 
@@ -18,14 +18,10 @@ function performAction() {
 };
 
 const getWeatherData = async (url, dateValue) => {
-  const userInput = {
-    zip: zip.value,
-    feelings: feelings.value,
-    dateValue
-  }
+  const userInput = { date: dateValue, zip: zip.value,feelings: feelings.value }
   await fetch(url)
     .then(response => response.json())
-    .then(data => addWeatherData("/addWeatherData" ,{ ...data, ...userInput }))
+    .then(data => addWeatherData("/addWeatherData", { ...data, ...userInput }))
     .then(() => getAllData())
     .catch(error => console.log(`Error: ${error}`));
 };
@@ -50,7 +46,7 @@ const getAllData = async () => {
 
 const updateUI = (data) => {
   document.getElementById('entryHolder').classList.add("show");
-  document.getElementById('date').innerHTML = `Date: ${data.dateValue}`;
+  document.getElementById('date').innerHTML = `Date: ${data.date}`;
   document.getElementById('city').innerHTML = `City: ${data.name}`;
   document.getElementById('temp').innerHTML = `Temperature: ${Math.ceil(data.main.temp - 273)}°C`;
   document.getElementById('description').innerHTML = `Description: ${data.weather[0].description}`;
