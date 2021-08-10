@@ -1,4 +1,4 @@
-let apiKey = '';
+let apiKey = '&APPID=e67c73b8c6713f05240abeaf23a4b950';
 let baseURL = `http://api.openweathermap.org/data/2.5/weather?zip=`
 
 
