@@ -1,5 +1,5 @@
-let apiKey = '&APPID=e67c73b8c6713f05240abeaf23a4b950';
-let baseURL = `http://api.openweathermap.org/data/2.5/weather?zip=`
+const apiKey = '&APPID=e67c73b8c6713f05240abeaf23a4b950&units=metric';
+const baseURL = `http://api.openweathermap.org/data/2.5/weather?zip=`
 
 
 const button = document.getElementById('generate');
@@ -48,7 +48,7 @@ const updateUI = (data) => {
   document.getElementById('entryHolder').classList.add("show");
   document.getElementById('date').innerHTML = `Date: ${data.date}`;
   document.getElementById('city').innerHTML = `City: ${data.name}`;
-  document.getElementById('temp').innerHTML = `Temperature: ${Math.ceil(data.main.temp - 273)}°C`;
+  document.getElementById('temp').innerHTML = `Temperature: ${Math.ceil(data.main.temp)}°C`;
   document.getElementById('description').innerHTML = `Description: ${data.weather[0].description}`;
   document.getElementById('content').innerHTML = `My feelings: ${data.feelings}`;
 }
