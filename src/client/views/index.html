@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Travel Weather App</title>
+</head>
+
+<body>
+  <div id="app" class="app-container">
+    <div class="header">
+      <h1>Travel planner</h1>
+    </div>
+
+    <div class="content">
+      <div class="location-image-container">
+        <img src="/src/client/media/background.jpeg" id="image" class="location-image" />
+      </div>
+      <div class=form-container>
+        <div class="zip-container">
+          <label for="city" class="label">My trip to</label>
+          <input id="city" type="text" placeholder="Enter your city here">
+        </div>
+        <div class="zip-container">
+          <label for="start" class="label">Departing</label>
+          <input type="date" id="start" name="trip-start" value="" min="" max="2025-12-31">
+        </div>
+        <div>
+          <button id="generate" type="submit" class="button">Search</button>
+        </div>
+        <div class="recent-entry" id="entryHolder">
+          <!-- <img id="flag" class="recent-entry-flag" /> -->
+          <div class="recent-entry-content">
+            <p id="days"></p>
+            <p>
+              <span id="temp">
+              <span id="clouds">
+            </p>
+            </p>
+            <p id="info"></p>
+            <p id="greet"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    // Check that service workers are supported
+    if ('serviceWorker' in navigator) {
+        // Use the window load event to keep the page load performant
+        window.addEventListener('load', () => {
+            navigator.serviceWorker.register('/service-worker.js')
+            .then(reg => console.log("Service Worker is active"))
+            .catch(err => console.log("Error: ", err))
+        });
+    }
+   </script>
+</body>
+
+</html>
